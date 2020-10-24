@@ -2,8 +2,26 @@ import React from "react";
 import "./App.css";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
-import { PieChart } from "./components/PieChart";
+import PieChart from "./components/PieChart";
 import Profile from "./components/Profile";
+
+const items = [
+  {
+    name: "milk",
+    value: 150,
+    id: 1,
+  },
+  {
+    name: "beer",
+    value: 120.9,
+    id: 2,
+  },
+  {
+    name: "chips",
+    value: 100,
+    id: 3,
+  },
+];
 
 function App() {
   return (
@@ -12,7 +30,7 @@ function App() {
         <LoginButton />
         <LogoutButton />
         <Profile />
-        <PieChart />
+        <PieChart items={items} />
       </header>
     </div>
   );
