@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import NavBar from "./components/NavBar";
 import PieChart from "./components/PieChart";
 import Profile from "./components/Profile";
 
@@ -27,8 +28,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <LoginButton />
-        <LogoutButton />
+        <NavBar />
         <Profile />
         <PieChart items={items} />
       </header>
