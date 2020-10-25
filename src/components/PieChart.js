@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const strokeWidth = 17; // change in order to fit a Pie width (max 30)
 const Pie = styled.svg`
@@ -73,23 +74,26 @@ const PieChart = ({ items }) => {
   };
   prepareData();
 
-  // const showTip = (e) => {
-  //   tipElement = document.createElement("div");
-  //   tipElement.className = "tip";
-  //   tipElement.innerHTML = e.target.dataset.tip;
-  //   document.body.append(tipElement);
-  //   tipElement.style.left = e.clientX + 10 + "px";
-  //   tipElement.style.top = e.clientY + 10 + "px";
-  // };
+  const showTip = (e) => {
+    tipElement = document.createElement("div");
+    tipElement.className = "tip";
+    tipElement.innerHTML = e.target.dataset.tip;
+    console.log(e.target.dataset.tip);
+    document.body.append(tipElement);
+    tipElement.style.left = e.clientX + 10 + "px";
+    tipElement.style.top = e.clientY + 10 + "px";
+  };
 
-  // const hideTip = () => tipElement.remove();
+  console.log(percents);
+
+  const hideTip = () => tipElement.remove();
 
   if (items.length === 0) return <p style={{ color: "white" }}>No items</p>;
   return (
     <>
       <Pie viewBox='0 0 60 60' className='pie'>
         {items.map((item, i) => (
-          <circle
+          <motion.circle
             key={item.id}
             data-tip={`${item.name}<br/>${item.value}: ${percents[i].toFixed(
               2
@@ -102,9 +106,10 @@ const PieChart = ({ items }) => {
               strokeDashoffset: `${offsets[i]}`,
               stroke: `${colors[i]}`,
             }}
-            // onMouseEnter={(e) => showTip(e)}
-            // onMouseLeave={() => hideTip()}
-          />
+            onMouseEnter={(e) => showTip(e)}
+            onMouseLeave={() => hideTip()}>
+            hello {percents[i]}
+          </motion.circle>
         ))}
       </Pie>
 
@@ -112,7 +117,7 @@ const PieChart = ({ items }) => {
         {items.map((item, i) => (
           <li key={item.id}>
             <span style={{ background: `${colors[i]}` }}></span>
-            {item.name}
+            {item.name} {`${percents[i].toFixed(2)}%`}
           </li>
         ))}
       </Legend>
