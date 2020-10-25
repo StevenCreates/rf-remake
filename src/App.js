@@ -2,28 +2,39 @@ import React from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import PieChart from "./components/PieChart";
-import Profile from "./components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./components/LoginButton";
+import styled from "styled-components";
+import InfoGrid from "./components/InfoGrid";
 
 const items = [
   {
-    name: "Sold",
+    name: "Website",
     value: 400,
     id: 1,
-    color: "	#FF1493",
+    color: "#FF1493",
   },
   {
-    name: "Available",
+    name: "Box Office",
     value: 83,
     id: 2,
   },
   {
-    name: "Pre-Sold",
+    name: "Entrance",
     value: 100,
     id: 3,
   },
+  {
+    name: "Still Available",
+    value: 100,
+    id: 3,
+    color: "#696969",
+  },
 ];
+
+const AppGrid = styled.div`
+  display: grid;
+`;
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -31,13 +42,16 @@ function App() {
   return (
     <div style={{ position: "relative" }}>
       <header className='App-header'>
-        {isAuthenticated && (
+        {!isAuthenticated && (
           <>
             <NavBar />
-            <PieChart items={items} />
+            <AppGrid>
+              <InfoGrid />
+              <PieChart items={items} />
+            </AppGrid>
           </>
         )}
-        {!isAuthenticated && <LoginButton />}
+        {isAuthenticated && <LoginButton />}
       </header>
     </div>
   );
