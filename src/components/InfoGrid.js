@@ -6,20 +6,20 @@ export default function InfoGrid() {
     <div>
       <TopGrid>
         <TopCard>
-          <span className='numberStat'>80</span>
-          <span className='title'>Title</span>
+          <span className='numberStat'>14,034</span>
+          <span className='title'>Total Registered</span>
         </TopCard>
         <TopCard>
-          <span className='numberStat'>123</span>
-          <span className='title'>Title</span>
+          <span className='numberStat'>15,000</span>
+          <span className='title'>Reg. Target</span>
         </TopCard>
         <TopCard>
-          <span className='numberStat'>123</span>
-          <span className='title'>Title</span>
+          <span className='numberStat'>87%</span>
+          <span className='title'>% of Target</span>
         </TopCard>
         <TopCard>
-          <span className='numberStat'>3312</span>
-          <span className='title'>Title</span>
+          <span className='numberStat'>0</span>
+          <span className='title'>Weeks Out</span>
         </TopCard>
       </TopGrid>
     </div>
@@ -38,7 +38,7 @@ const TopCard = styled.div`
   text-align: center;
   background: #ffffff;
   border-radius: 4px;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
@@ -49,8 +49,8 @@ const TopCard = styled.div`
   }
   .title {
     margin-top: 0.1rem;
-    font-size: 40px;
+    font-size: 24px;
     display: block;
-    font-weight: 100;
+    font-weight: 400;
   }
 `;
