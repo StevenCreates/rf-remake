@@ -31,6 +31,7 @@ const Pie = styled.svg`
     width: 44vh;
   }
 `;
+
 const Legend = styled.ul`
   display: flex;
   list-style: none;
@@ -61,12 +62,19 @@ const PieChart = ({ items }) => {
   const offsets = [0];
   let strokeDashoffset = 0;
   let totalValue = 0;
-  let tipElement;
 
   const prepareData = () => {
     for (let key in items) totalValue += items[key].value;
-    items.forEach((item) =>
-      colors.push("#" + (Math.random().toString(16) + "000000").substring(2, 8))
+    items.forEach(
+      (item) => {
+        console.log(item.color);
+        item.color
+          ? colors.push(item.color)
+          : colors.push(
+              "#" + (Math.random().toString(16) + "000000").substring(2, 8)
+            );
+      }
+      // colors.push("#" + (Math.random().toString(16) + "000000").substring(2, 8))
     );
     items.forEach((item) => percents.push((item.value * 100) / totalValue));
     items.forEach((item, i) => offsets.push((strokeDashoffset -= percents[i])));
@@ -79,21 +87,23 @@ const PieChart = ({ items }) => {
     <>
       <Pie viewBox='0 0 60 60' className='pie'>
         {items.map((item, i) => (
-          <motion.circle
-            key={item.id}
-            data-tip={`${item.name}<br/>${item.value}: ${percents[i].toFixed(
-              2
-            )}%`}
-            r='25%'
-            cx='50%'
-            cy='50%'
-            style={{
-              strokeDasharray: `${percents[i]} 100`,
-              strokeDashoffset: `${offsets[i]}`,
-              stroke: `${colors[i]}`,
-            }}>
-            hello {percents[i]}
-          </motion.circle>
+          <>
+            <motion.circle
+              key={item.id}
+              data-tip={`${item.name}<br/>${item.value}: ${percents[i].toFixed(
+                2
+              )}%`}
+              r='25%'
+              cx='50%'
+              cy='50%'
+              style={{
+                color: "white",
+                fontSize: "24px",
+                strokeDasharray: `${percents[i]} 100`,
+                strokeDashoffset: `${offsets[i]}`,
+                stroke: `${colors[i]}`,
+              }}></motion.circle>
+          </>
         ))}
       </Pie>
 

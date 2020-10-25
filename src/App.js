@@ -9,6 +9,7 @@ const items = [
     name: "Sold",
     value: 400,
     id: 1,
+    color: "	#FF1493",
   },
   {
     name: "Available",
