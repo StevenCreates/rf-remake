@@ -3,6 +3,8 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import PieChart from "./components/PieChart";
 import Profile from "./components/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./components/LoginButton";
 
 const items = [
   {
@@ -24,12 +26,18 @@ const items = [
 ];
 
 function App() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
-    <div className='App'>
+    <div style={{ position: "relative" }}>
       <header className='App-header'>
-        <NavBar />
-        <Profile />
-        <PieChart items={items} />
+        {isAuthenticated && (
+          <>
+            <NavBar />
+            <PieChart items={items} />
+          </>
+        )}
+        {!isAuthenticated && <LoginButton />}
       </header>
     </div>
   );
