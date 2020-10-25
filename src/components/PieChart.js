@@ -74,20 +74,6 @@ const PieChart = ({ items }) => {
   };
   prepareData();
 
-  const showTip = (e) => {
-    tipElement = document.createElement("div");
-    tipElement.className = "tip";
-    tipElement.innerHTML = e.target.dataset.tip;
-    console.log(e.target.dataset.tip);
-    document.body.append(tipElement);
-    tipElement.style.left = e.clientX + 10 + "px";
-    tipElement.style.top = e.clientY + 10 + "px";
-  };
-
-  console.log(percents);
-
-  const hideTip = () => tipElement.remove();
-
   if (items.length === 0) return <p style={{ color: "white" }}>No items</p>;
   return (
     <>
@@ -105,9 +91,7 @@ const PieChart = ({ items }) => {
               strokeDasharray: `${percents[i]} 100`,
               strokeDashoffset: `${offsets[i]}`,
               stroke: `${colors[i]}`,
-            }}
-            onMouseEnter={(e) => showTip(e)}
-            onMouseLeave={() => hideTip()}>
+            }}>
             hello {percents[i]}
           </motion.circle>
         ))}

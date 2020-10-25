@@ -6,17 +6,17 @@ import Profile from "./components/Profile";
 
 const items = [
   {
-    name: "milk",
-    value: 150,
+    name: "Sold",
+    value: 400,
     id: 1,
   },
   {
-    name: "beer",
-    value: 120.9,
+    name: "Available",
+    value: 83,
     id: 2,
   },
   {
-    name: "chips",
+    name: "Pre-Sold",
     value: 100,
     id: 3,
   },
