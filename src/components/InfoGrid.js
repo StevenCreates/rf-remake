@@ -29,7 +29,6 @@ export default function InfoGrid() {
 const TopGrid = styled.div`
   display: grid;
   margin-right: 2rem;
-  margin-left: 2rem;
   margin-top: 1rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
