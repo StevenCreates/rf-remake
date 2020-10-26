@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./components/LoginButton";
 import styled from "styled-components";
 import InfoGrid from "./components/InfoGrid";
+import DashboardChanger from "./components/DashboardChanger";
 
 const items = [
   {
@@ -34,6 +35,7 @@ const items = [
 
 const AppGrid = styled.div`
   display: grid;
+  grid-template-columns: 11% auto;
 `;
 
 function App() {
@@ -44,10 +46,13 @@ function App() {
       <header className='App-header'>
         {!isAuthenticated && (
           <>
-            <NavBar />
             <AppGrid>
-              <InfoGrid />
-              <PieChart items={items} />
+              <NavBar />
+              <div style={{ marginLeft: "2rem" }}>
+                <DashboardChanger />
+                <InfoGrid />
+                <PieChart items={items} />
+              </div>
             </AppGrid>
           </>
         )}
