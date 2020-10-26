@@ -9,8 +9,8 @@ import LogoutButton from "./LogoutButton";
 const NavOpen = styled(motion.nav)`
   background: linear-gradient(#ed1a5d, #351dce);
   width: full;
-  /* display: grid; */
-  /* grid-template-rows: 1fr 1fr 1fr; */
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
   padding: 3px;
   height: 100vh;
 `;
@@ -57,10 +57,8 @@ const NavBar = () => {
       {!open && (
         <AnimatePresence>
           <NavOpen initial={{ y: -100 }} animate={{ y: 0 }} exit={{ y: -100 }}>
-            <IconStyled type='button' onClick={CloseSesame}>
-              {/* <CloseMenuIcon /> */}
-            </IconStyled>
-            {/* <LoginButton /> */}
+            <div>Logo</div>
+            <div>Navigation</div>
             <LogoutButton />
           </NavOpen>
         </AnimatePresence>
