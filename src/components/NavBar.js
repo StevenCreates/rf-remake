@@ -5,6 +5,8 @@ import MenuIcon from "../assets/MenuIcon";
 import CloseMenuIcon from "../assets/CloseMenuIcon";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import RainFocusLogo from "../assets/RainFocusLogo";
+import Navigation from "./Navigation";
 
 const NavOpen = styled(motion.nav)`
   background: linear-gradient(#ed1a5d, #351dce);
@@ -57,8 +59,12 @@ const NavBar = () => {
       {!open && (
         <AnimatePresence>
           <NavOpen initial={{ y: -100 }} animate={{ y: 0 }} exit={{ y: -100 }}>
-            <div>Logo</div>
-            <div>Navigation</div>
+            <div>
+              <RainFocusLogo />
+            </div>
+            <div>
+              <Navigation />
+            </div>
             <LogoutButton />
           </NavOpen>
         </AnimatePresence>
