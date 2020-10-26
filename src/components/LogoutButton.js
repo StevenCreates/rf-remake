@@ -8,6 +8,13 @@ const LogoutButton = () => {
   const StyledButton = styled.button`
     margin: 1rem;
     height: 3rem;
+    width: 80%;
+    background: #ed1a5d;
+    border: #ed1a5d solid 1px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
   `;
 
   return (
