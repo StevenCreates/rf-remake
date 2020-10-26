@@ -7,24 +7,23 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
 const NavOpen = styled(motion.nav)`
-  background: hotpink;
-  width: 15vw;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  background: linear-gradient(#ed1a5d, #351dce);
+  width: full;
+  /* display: grid; */
+  /* grid-template-rows: 1fr 1fr 1fr; */
   padding: 3px;
-  margin-top: 1.5rem;
-  margin-left: 1.5rem;
+  height: 100vh;
 `;
 
 const NavClosed = styled(motion.nav)`
-  background: hotpink;
+  background: #ed1a5d;
   width: 2vw;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   /* padding: 0.2rem; */
   margin-top: 1.5rem;
-  margin-left: 1.5rem;
   border-radius: 10px;
+  height: 2rem;
 `;
 
 const IconStyled = styled(motion.div)`
@@ -43,7 +42,7 @@ const NavBar = () => {
   };
   return (
     <>
-      {!open && (
+      {open && (
         <AnimatePresence>
           <NavClosed
             initial={{ y: -100 }}
@@ -55,11 +54,11 @@ const NavBar = () => {
           </NavClosed>
         </AnimatePresence>
       )}
-      {open && (
+      {!open && (
         <AnimatePresence>
           <NavOpen initial={{ y: -100 }} animate={{ y: 0 }} exit={{ y: -100 }}>
             <IconStyled type='button' onClick={CloseSesame}>
-              <CloseMenuIcon />
+              {/* <CloseMenuIcon /> */}
             </IconStyled>
             {/* <LoginButton /> */}
             <LogoutButton />
