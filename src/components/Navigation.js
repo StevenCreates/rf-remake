@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import RecentIcon from "../assets/RecentIcon";
 import SearchIcon from "../assets/SearchIcon";
 
 const Navigation = () => {
@@ -12,7 +13,12 @@ const Navigation = () => {
           </IconStyled>
           Search
         </SearchItems>
-        <SearchItems>Recents</SearchItems>
+        <SearchItems>
+          <IconStyled>
+            <RecentIcon />
+          </IconStyled>
+          Recents
+        </SearchItems>
       </FirstNav>
       <Nav>
         <NavItems>My Nav</NavItems>
@@ -29,6 +35,8 @@ const FirstNav = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px #ffffff solid;
 `;
 const SearchItems = styled.li`
   font-size: 20px;
@@ -38,11 +46,13 @@ const Nav = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-top: 1rem;
 `;
 const NavItems = styled.li``;
 
 const NavContainer = styled.div`
   padding-left: 1.5rem;
+  padding-right: 1.5rem;
   color: #ffffff;
 `;
 

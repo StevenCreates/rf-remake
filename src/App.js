@@ -134,6 +134,9 @@ function App() {
                         />
                       );
                     })}
+                    <span style={{ display: "block", color: "white" }}>
+                      Daily Goal
+                    </span>
                   </Container>
                 </SecondGrid>
               </div>
