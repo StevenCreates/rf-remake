@@ -42,7 +42,7 @@ const Nav = styled.ul`
 const NavItems = styled.li``;
 
 const NavContainer = styled.div`
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   color: #ffffff;
 `;
 

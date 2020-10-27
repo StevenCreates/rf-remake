@@ -33,6 +33,26 @@ const items = [
   },
 ];
 
+const data = [
+  {
+    title: "Total Registered",
+    stat: "14,034",
+  },
+
+  {
+    title: "Reg. Target",
+    stat: "15,000",
+  },
+  {
+    title: "% of Target",
+    stat: "94%",
+  },
+  {
+    title: "Weeks Out",
+    stat: "0",
+  },
+];
+
 const AppGrid = styled.div`
   display: grid;
   grid-template-columns: 11% auto;
@@ -50,7 +70,7 @@ function App() {
               <NavBar />
               <div style={{ marginLeft: "2rem" }}>
                 <DashboardChanger />
-                <InfoGrid />
+                <InfoGrid data={data} color='#ff1493' />
                 <PieChart items={items} />
               </div>
             </AppGrid>

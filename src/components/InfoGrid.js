@@ -1,26 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function InfoGrid() {
+export default function InfoGrid({ data, color }) {
   return (
     <div>
       <TopGrid>
-        <TopCard>
-          <span className='numberStat'>14,034</span>
-          <span className='title'>Total Registered</span>
-        </TopCard>
-        <TopCard>
-          <span className='numberStat'>15,000</span>
-          <span className='title'>Reg. Target</span>
-        </TopCard>
-        <TopCard>
-          <span className='numberStat'>87%</span>
-          <span className='title'>% of Target</span>
-        </TopCard>
-        <TopCard>
-          <span className='numberStat'>0</span>
-          <span className='title'>Weeks Out</span>
-        </TopCard>
+        {data.map((data, i) => (
+          <TopCard key={data + i}>
+            <span style={{ color: color }} className='numberStat'>
+              14,034
+            </span>
+            <span className='title'>Total Registered</span>
+          </TopCard>
+        ))}
       </TopGrid>
     </div>
   );
@@ -46,7 +38,6 @@ const TopCard = styled.div`
     0 100px 80px rgba(0, 0, 0, 0.12);
   .numberStat {
     font-size: 75px;
-    color: #ff1493;
   }
   .title {
     margin-top: 0.1rem;
