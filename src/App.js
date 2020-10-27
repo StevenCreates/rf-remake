@@ -59,7 +59,7 @@ const AppGrid = styled.div`
 `;
 
 function App() {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <div style={{ position: "relative" }}>
