@@ -32,6 +32,24 @@ const items = [
     color: "#696969",
   },
 ];
+const itemsTwo = [
+  {
+    name: "California",
+    value: 23,
+    id: 1,
+    color: "#FF1493",
+  },
+  {
+    name: "Utah",
+    value: 83,
+    id: 2,
+  },
+  {
+    name: "Colorado",
+    value: 34,
+    id: 3,
+  },
+];
 
 const data = [
   {
@@ -75,7 +93,10 @@ function App() {
               <div style={{ marginLeft: "2rem" }}>
                 <DashboardChanger />
                 <InfoGrid data={data} color='#ff1493' />
-                <PieChart items={items} />
+                <div>
+                  <PieChart items={items} />
+                  <PieChart items={itemsTwo} />
+                </div>
               </div>
             </AppGrid>
           </>

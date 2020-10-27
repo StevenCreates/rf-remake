@@ -117,6 +117,8 @@ const PieChart = ({ items }) => {
 };
 
 const PieContainer = styled.div`
+  display: inline-block;
+  margin-right: 2rem;
   margin-top: 2rem;
   text-align: center;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
