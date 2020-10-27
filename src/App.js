@@ -28,7 +28,7 @@ const items = [
   {
     name: "Still Available",
     value: 100,
-    id: 3,
+    id: 4,
     color: "#696969",
   },
 ];
@@ -37,19 +37,23 @@ const data = [
   {
     title: "Total Registered",
     stat: "14,034",
+    id: 1,
   },
 
   {
     title: "Reg. Target",
     stat: "15,000",
+    id: 2,
   },
   {
     title: "% of Target",
     stat: "94%",
+    id: 3,
   },
   {
     title: "Weeks Out",
     stat: "0",
+    id: 4,
   },
 ];
 

@@ -67,7 +67,6 @@ const PieChart = ({ items }) => {
   const prepareData = () => {
     for (let key in items) totalValue += items[key].value;
     items.forEach((item) => {
-      console.log(item.color);
       item.color
         ? colors.push(item.color)
         : colors.push(
@@ -107,8 +106,8 @@ const PieChart = ({ items }) => {
 
       <Legend>
         {items.map((item, i) => (
-          <li key={item.id}>
-            <span style={{ background: `${colors[i]}` }}></span>
+          <li key={item.name}>
+            <span key={item.id} style={{ background: `${colors[i]}` }}></span>
             {item.name} {`${percents[i].toFixed(2)}%`}
           </li>
         ))}
