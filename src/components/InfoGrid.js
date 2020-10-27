@@ -6,11 +6,11 @@ export default function InfoGrid({ data, color }) {
     <div>
       <TopGrid>
         {data.map((data, i) => (
-          <TopCard key={data + i}>
+          <TopCard key={i}>
             <span style={{ color: color }} className='numberStat'>
-              14,034
+              {data.stat}
             </span>
-            <span className='title'>Total Registered</span>
+            <span className='title'>{data.title}</span>
           </TopCard>
         ))}
       </TopGrid>
