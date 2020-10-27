@@ -7,6 +7,7 @@ import LoginButton from "./components/LoginButton";
 import styled from "styled-components";
 import InfoGrid from "./components/InfoGrid";
 import DashboardChanger from "./components/DashboardChanger";
+import LineBar from "./components/LineBar";
 
 const items = [
   {
@@ -80,8 +81,30 @@ const AppGrid = styled.div`
   grid-template-columns: 11% auto;
 `;
 
+const SecondGrid = styled.div`
+  display: grid;
+  grid-template-columns: 30% 30% 40%;
+  margin-right: 5rem;
+`;
+
+const max = 300;
+
 function App() {
   const { isAuthenticated } = useAuth0();
+
+  const [lineData, setLineData] = React.useState([]);
+
+  React.useEffect(() => {
+    genList();
+  }, []);
+
+  const genList = () => {
+    const list = [];
+    for (let i = 0; i < 7; i++) {
+      list[i] = Math.random() * 101;
+    }
+    setLineData(list);
+  };
 
   return (
     <div style={{ position: "relative" }}>
@@ -93,10 +116,26 @@ function App() {
               <div style={{ marginLeft: "2rem" }}>
                 <DashboardChanger />
                 <InfoGrid data={data} color='#ff1493' />
-                <div>
+                <SecondGrid>
                   <PieChart items={items} />
                   <PieChart items={itemsTwo} />
-                </div>
+                  <Container>
+                    {lineData.map((data, i) => {
+                      const y = max - (max * data) / 100;
+                      return (
+                        <LineBar
+                          key={data}
+                          index={i}
+                          width='50px'
+                          height='300px'
+                          color='#ea1'
+                          percentage={`${Number(data).toFixed(2)} %`}
+                          data={`M 0 ${max} L 0  ${y} L 60 ${y} l 60 ${max} Z`}
+                        />
+                      );
+                    })}
+                  </Container>
+                </SecondGrid>
               </div>
             </AppGrid>
           </>
@@ -106,5 +145,18 @@ function App() {
     </div>
   );
 }
+
+const Container = styled.div`
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  height: 400px;
+  width: auto;
+  padding: 1rem 0 1rem 0;
+`;
 
 export default App;

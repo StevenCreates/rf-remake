@@ -117,7 +117,7 @@ const PieChart = ({ items }) => {
 };
 
 const PieContainer = styled.div`
-  display: inline-block;
+  display: block;
   margin-right: 2rem;
   margin-top: 2rem;
   text-align: center;
@@ -126,7 +126,7 @@ const PieContainer = styled.div`
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
   height: 400px;
-  width: 400px;
+  width: auto;
   padding: 1rem 0 1rem 0;
 `;
 
